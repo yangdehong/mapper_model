@@ -2,15 +2,6 @@ package com.ydh.redsheep.model;
 
 import lombok.Data;
 
-import java.lang.*;
-import java.util.*;
-import java.math.*;
-
-import java.io.Serializable;
-
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
  *
  * @author : #author

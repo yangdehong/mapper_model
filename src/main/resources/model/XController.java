@@ -1,9 +1,10 @@
-package #0.controller;
+package import org.springframework.web.bind.annotation.*;
 
-import #0.service.#1Service;
-import #0.model.#1#3;
 import javax.annotation.Resource;
-import org.springframework.web.bind.annotation.*;
+
+#0.controller;
+        #0.service.#1Service;
+        #0.model.#1#3;
 
 /**
 *

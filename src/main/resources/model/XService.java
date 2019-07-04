@@ -1,8 +1,4 @@
-package #0.service;
-
-import java.util.List;
-import java.lang.Long;
-import #0.model.#1#3;
+package #0.service; #0.model.#1#3;
 
 /**
  *
