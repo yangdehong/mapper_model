@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="#0.mapper.#1Mapper">
+
+    <resultMap id="BaseResultMap" type="#0.#1#3">
+        #baseMap
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        #baseList
+    </sql>
+
+    <!-- 分页插叙列表 -->
+    <select id="select#1PageList" resultType="com.ydh.redsheep.#1#3">
+        SELECT <include refid="Base_Column_List"/> FROM #4
+        <where>
+            #condition
+        </where>
+        limit #{start}, #{pageSize}
+    </select>
+
+    <!-- 分页插叙统计 -->
+    <select id="select#1PageCount" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM #4
+        <where>
+            #condition
+        </where>
+    </select>
+
+    <!-- 根据ID查询 -->
+    <select id="select#1ById" resultType="com.ydh.redsheep.#1#3">
+        SELECT <include refid="Base_Column_List"/> FROM #4 WHERE id = #{id}
+    </select>
+
+    <!-- 根据ID删除 -->
+    <delete id="delete#1ById" >
+        delete from #4 where id = #{id}
+    </delete>
+
+    <!-- 新增 -->
+    <insert id="insert#1" >
+        insert into #4(#baseList)
+        values(#baseValueList)
+    </insert>
+
+    <!-- 根据ID修改 -->
+    <update id="update#1ById" >
+        update #4
+        <set>
+            #updateValue
+        </set>
+        where id = #{model.id}
+    </update>
+
+</mapper>
