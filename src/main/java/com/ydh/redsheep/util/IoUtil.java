@@ -68,7 +68,7 @@ public class IoUtil {
     }
 
     public static void main(String[] args) {
-        String fileName = "/Users/yangdehong/IdeaProjects/mapper_model/src/main/resources/model/XController.java";
+        String fileName = "/Users/yangdehong/IdeaProjects/mapper_model/src/main/resources/model/XController";
         String s = readModelFile(fileName);
         System.out.println(s);
     }

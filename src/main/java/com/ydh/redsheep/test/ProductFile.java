@@ -71,7 +71,7 @@ public class ProductFile {
      */
     public void productController(String tableName) {
 
-        String path = "src/main/resources/model/XController.java";
+        String path = "src/main/resources/model/XController";
         String content = transferContent(ApplicationContent.projectPath + path, tableName);
 
         IoUtil.writeOutFile(ApplicationContent.controllerPath + File.separator,
@@ -87,7 +87,7 @@ public class ProductFile {
      */
     public void productService(String tableName) {
 
-        String path = "src/main/resources/model/XService.java";
+        String path = "src/main/resources/model/XService";
         String content = transferContent(ApplicationContent.projectPath + path, tableName);
 
         IoUtil.writeOutFile(ApplicationContent.servicePath + File.separator,
@@ -102,7 +102,7 @@ public class ProductFile {
      * @Date: 2018/7/23
      */
     public void productServiceImpl(String tableName) {
-        String path = "src/main/resources/model/XServiceImpl.java";
+        String path = "src/main/resources/model/XServiceImpl";
         String content = transferContent(ApplicationContent.projectPath + path, tableName);
 
         IoUtil.writeOutFile(ApplicationContent.servicePath + File.separator + "impl" + File.separator,
@@ -116,7 +116,7 @@ public class ProductFile {
      * @Date: 2018/7/23
      */
     public void productServiceImpl2(String tableName) {
-        String path = "src/main/resources/model/XServiceImpl2.java";
+        String path = "src/main/resources/model/XServiceImpl2";
         String content = transferContent(ApplicationContent.projectPath + path, tableName);
 
         IoUtil.writeOutFile(ApplicationContent.servicePath + File.separator + "impl" + File.separator,
@@ -131,7 +131,7 @@ public class ProductFile {
      * @Date: 2018/7/23
      */
     public void productMapper(String tableName) {
-        String path = "src/main/resources/model/XMapper.java";
+        String path = "src/main/resources/model/XMapper";
         String content = transferContent(ApplicationContent.projectPath + path, tableName);
 
         IoUtil.writeOutFile(ApplicationContent.mapperPath + File.separator,
@@ -146,7 +146,7 @@ public class ProductFile {
      * @Date: 2018/7/23
      */
     public void productMapper2(String tableName) {
-        String path = "src/main/resources/model/XMapper2.java";
+        String path = "src/main/resources/model/XMapper2";
         String content = transferContent(ApplicationContent.projectPath + path, tableName);
 
         IoUtil.writeOutFile(ApplicationContent.mapperPath + File.separator,
@@ -221,7 +221,7 @@ public class ProductFile {
                     append(columnName).append("; // ").append(columnComment).append("\r\n");
         }
 
-        String path = "src/main/resources/model/X.java";
+        String path = "src/main/resources/model/X";
         String content = transferContent(ApplicationContent.projectPath + path, tableName);
         content = content.replaceAll("#content", sb.toString());
 
@@ -248,7 +248,7 @@ public class ProductFile {
                     append(columnName).append("; // ").append(columnComment).append("\r\n");
         }
 
-        String path = "src/main/resources/model/X2.java";
+        String path = "src/main/resources/model/X2";
         String content = transferContent(ApplicationContent.projectPath + path, tableName);
         content = content.replaceAll("#lombokdata", "@Data").replaceAll("#content", sb.toString());
 
