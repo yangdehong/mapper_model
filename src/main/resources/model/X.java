@@ -1,6 +1,12 @@
-package com.ydh.redsheep.model;
+package #0.controller;
 
 import lombok.Data;
+
+import java.lang.*;
+import java.util.*;
+import java.math.*;
+
+import java.io.Serializable;
 
 /**
  *

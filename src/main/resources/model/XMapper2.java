@@ -1,5 +1,11 @@
 package #0.mapper;
-        #0.model.#1#3;
+
+import java.lang.*;
+import java.util.*;
+import java.math.*;
+import #0.model.#1#3;
+
+import tk.mybatis.mapper.common.Mapper;
 
 /**
  *

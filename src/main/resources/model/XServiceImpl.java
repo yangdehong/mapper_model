@@ -1,11 +1,13 @@
-package import org.springframework.stereotype.Service;
+package #0.service.impl;
 
+import #0.model.#1#3;
+import #0.mapper.#1Mapper;
+import #0.service.#1Service;
+
+import java.lang.Long;
+
+import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
-
-#0.service.impl;
-        #0.model.#1#3;
-        #0.mapper.#1Mapper;
-        #0.service.#1Service;
 
 /**
  *
