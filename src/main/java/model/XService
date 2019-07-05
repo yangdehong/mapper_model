@@ -1,8 +1,8 @@
-package #0.service;
+package #servicePath;
 
 import java.util.List;
 import java.lang.Long;
-import #0.model.#1#3;
+import #modelPath.#1#3;
 
 /**
  *

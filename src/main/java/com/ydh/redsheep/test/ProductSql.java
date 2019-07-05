@@ -36,14 +36,17 @@ public class ProductSql {
         StringBuffer sb = new StringBuffer();
         int index = 0;
         for (ColumnBO columnBO : columnList) {
+            String columnName = columnBO.getColumnName();
+            String dataType = columnBO.getDataType();
+            dataType = "int".endsWith(dataType)?"integer":dataType;
             if (index==0) {
-                sb.append("<id column=\"").append(columnBO.getColumnName())
-                        .append("\" jdbcType=\"").append(columnBO.getDataType().toUpperCase())
+                sb.append("<id column=\"").append(columnName)
+                        .append("\" jdbcType=\"").append(dataType.toUpperCase())
                         .append("\" property=\"").append(columnBO.getColumnNameTrans())
                         .append("\"/>").append("\r\n");
             } else {
-                sb.append("<result column=\"").append(columnBO.getColumnName())
-                        .append("\" jdbcType=\"").append(columnBO.getDataType().toUpperCase())
+                sb.append("<result column=\"").append(columnName)
+                        .append("\" jdbcType=\"").append(dataType.toUpperCase())
                         .append("\" property=\"").append(columnBO.getColumnNameTrans())
                         .append("\"/>").append("\r\n");
             }

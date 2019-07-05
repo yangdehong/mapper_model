@@ -7,12 +7,11 @@ package com.ydh.redsheep.util;
 */
 public class ApplicationContent {
 
-    public static final String projectPath = PropertiesUtil.loadProperties("mybatis.project.path");
+    public static final String filePath = PropertiesUtil.loadProperties("mybatis.file.path");
     public static final String controllerPath = PropertiesUtil.loadProperties("mybatis.controller.path");
     public static final String servicePath = PropertiesUtil.loadProperties("mybatis.service.path");
     public static final String mapperPath = PropertiesUtil.loadProperties("mybatis.mapper.path");
     public static final String modelPath = PropertiesUtil.loadProperties("mybatis.model.path");
-    public static final String filePath = PropertiesUtil.loadProperties("mybatis.file.path");
 
     public static final String modelSuffix = PropertiesUtil.loadProperties("model.suffix");
 

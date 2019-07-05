@@ -1,9 +1,9 @@
-package #0.mapper;
+package #mapperPath;
 
 import java.lang.*;
 import java.util.*;
 import java.math.*;
-import #0.model.#1#3;
+import #modelPath.#1#3;
 
 import tk.mybatis.mapper.common.Mapper;
 

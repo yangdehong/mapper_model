@@ -1,4 +1,4 @@
-package #0.model;
+package #modelPath;
 
 import lombok.Data;
 
