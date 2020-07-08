@@ -9,7 +9,7 @@ import #modelPath.#1#3;
  * @author : #author
  * @date : #date
  */
-public interface #1Service {
+public interface #1Service extends BasicService<#1#3> {
 
     /**
      * @Description: 分页查询

@@ -21,6 +21,7 @@ import javax.persistence.Table;
 public class #1#3 implements Serializable {
 
     @Id
+    @GeneratedValue(generator = "JDBC")
     #content
 
 
