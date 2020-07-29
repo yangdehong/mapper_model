@@ -14,6 +14,13 @@ import tk.mybatis.mapper.common.Mapper;
  */
 public interface #1Mapper extends Mapper<#1#3> {
 
-
+    /**
+     * @Description: 分页列表
+     * @Param:
+     * @return:
+     * @Author: #author
+     * @Date: #date
+    */
+    List<#1#3> select#1PageList(@Param("model") #1#3 #2#3);
 
 }

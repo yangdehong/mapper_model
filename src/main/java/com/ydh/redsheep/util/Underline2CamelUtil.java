@@ -51,26 +51,26 @@ public class Underline2CamelUtil {
         return sb.toString();
     }
 
-//    /**
-//     * 驼峰法转下划线
-//     *
-//     * @param line 源字符串
-//     * @return 转换后的字符串
-//     */
-//    public static String camel2Underline(String line) {
-//        if (line == null || "".equals(line)) {
-//            return "";
-//        }
-//        line = String.valueOf(line.charAt(0)).toUpperCase().concat(line.substring(1));
-//        StringBuffer sb = new StringBuffer();
-//        Matcher matcher = PATTERN.matcher(line);
-//        while (matcher.find()) {
-//            String word = matcher.group();
-//            sb.append(word.toUpperCase());
-//            sb.append(matcher.end() == line.length() ? "" : "_");
-//        }
-//        return sb.toString();
-//    }
+    /**
+     * 驼峰法转下划线
+     *
+     * @param line 源字符串
+     * @return 转换后的字符串
+     */
+    public static String camel2Underline(String line) {
+        if (line == null || "".equals(line)) {
+            return "";
+        }
+        line = String.valueOf(line.charAt(0)).toUpperCase().concat(line.substring(1));
+        StringBuffer sb = new StringBuffer();
+        Matcher matcher = PATTERN.matcher(line);
+        while (matcher.find()) {
+            String word = matcher.group();
+            sb.append(word.toUpperCase());
+            sb.append(matcher.end() == line.length() ? "" : "_");
+        }
+        return sb.toString();
+    }
 
     public static void main(String[] args) {
         String line = "com_ydh_dog";

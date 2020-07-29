@@ -1,8 +1,8 @@
 package com.ydh.redsheep.test;
 
+import com.ydh.redsheep.service.ProductFileDirector;
 import com.ydh.redsheep.util.ApplicationContent;
 import com.ydh.redsheep.util.JdbcUtil;
-import com.ydh.redsheep.util.Underline2CamelUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.sql.ResultSet;
@@ -22,10 +22,8 @@ public class Main {
         List<String> list = main.getAllTables(ApplicationContent.tableName);
 
         list.forEach(tableName -> {
-            String bigTableName = Underline2CamelUtil.underline2Camel(tableName, false);
-            String smallTableName = Underline2CamelUtil.underline2Camel(tableName);
-            ProductFile productFile = new ProductFile(tableName, bigTableName, smallTableName);
-            productFile.start();
+            ProductFileDirector productFileDirector = new ProductFileDirector(tableName);
+            productFileDirector.start();
         });
     }
 

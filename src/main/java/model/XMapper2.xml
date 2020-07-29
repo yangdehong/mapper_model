@@ -11,6 +11,12 @@
         #baseList
     </sql>
 
-
+    <!-- 分页插叙列表 -->
+    <select id="select#1PageList" resultType="#modelPath.#1#3">
+        SELECT <include refid="Base_Column_List"/> FROM #4
+        <where>
+            #condition
+        </where>
+    </select>
 
 </mapper>

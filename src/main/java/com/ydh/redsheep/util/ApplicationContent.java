@@ -21,6 +21,6 @@ public class ApplicationContent {
 
     public static final String tableName = PropertiesUtil.loadProperties("table_name");
 
-    public static final boolean isTkMybatis = Boolean.valueOf(PropertiesUtil.loadProperties("ismybatis"));
+    public static final boolean isTkMybatis = Boolean.valueOf(PropertiesUtil.loadProperties("isTkMybatis"));
 
 }

@@ -30,7 +30,7 @@ public class #1ServiceImpl extends BasicServiceImpl<#1#3> implements #1Service {
     @Override
     public SimplePageInfo select#1PageList(#1#3 #2#3, int pageNum, int pageSize){
         PageHelper.startPage(pageNum, pageSize);
-        List<#1#3> #2List = customerWhiteGroupMapper.list(#2#3);
+        List<#1#3> #2List = #2Mapper.select#1PageList(#2#3);
         return SimplePageInfo.of(#2List);
     }
     /**
