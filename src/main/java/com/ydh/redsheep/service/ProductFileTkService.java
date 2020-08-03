@@ -1,8 +1,9 @@
 package com.ydh.redsheep.service;
 
 import com.ydh.redsheep.entity.ColumnBO;
-import com.ydh.redsheep.util.ApplicationContent;
+import com.ydh.redsheep.util.ApplicationConstant;
 import com.ydh.redsheep.util.IoUtil;
+import com.ydh.redsheep.util.ModelConstant;
 import com.ydh.redsheep.util.TransferContentUtil;
 
 import java.io.File;
@@ -15,59 +16,59 @@ import java.util.List;
 public class ProductFileTkService {
 
     public void productController(String tableName, String bigTableName, String smallTableName) {
-        String path = "src/main/java/model/XController";
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
 
-        content = content.replace("#modelPath", ApplicationContent.modelPath).replace("#mapperPath", ApplicationContent.mapperPath)
-                .replace("#servicePath", ApplicationContent.servicePath).replace("#controllerPath", ApplicationContent.controllerPath);
+        content = content.replace("#modelPath", ApplicationConstant.modelPath).replace("#mapperPath", ApplicationConstant.mapperPath)
+                .replace("#servicePath", ApplicationConstant.servicePath).replace("#controllerPath", ApplicationConstant.controllerPath);
 
-        IoUtil.writeOutFile(ApplicationContent.controllerPath.replaceAll("\\.", File.separator) + File.separator,
+        IoUtil.writeOutFile(ApplicationConstant.controllerPath.replaceAll("\\.", File.separator) + File.separator,
                 bigTableName + "Controller.java", content);
     }
 
     public void productService(String tableName, String bigTableName, String smallTableName) {
-        String path = "src/main/java/model/XService";
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
 
-        content = content.replace("#modelPath", ApplicationContent.modelPath).replace("#mapperPath", ApplicationContent.mapperPath)
-                .replace("#servicePath", ApplicationContent.servicePath);
+        content = content.replace("#modelPath", ApplicationConstant.modelPath).replace("#mapperPath", ApplicationConstant.mapperPath)
+                .replace("#servicePath", ApplicationConstant.servicePath);
 
-        IoUtil.writeOutFile(ApplicationContent.servicePath.replaceAll("\\.", File.separator) + File.separator,
+        IoUtil.writeOutFile(ApplicationConstant.servicePath.replaceAll("\\.", File.separator) + File.separator,
                 bigTableName + "Service.java", content);
     }
 
     public void productServiceImpl(String tableName, String bigTableName, String smallTableName) {
-        String path = "src/main/java/model/XServiceImpl2";
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
 
-        content = content.replace("#modelPath", ApplicationContent.modelPath).replace("#mapperPath", ApplicationContent.mapperPath)
-                .replace("#servicePath", ApplicationContent.servicePath);
+        content = content.replace("#modelPath", ApplicationConstant.modelPath).replace("#mapperPath", ApplicationConstant.mapperPath)
+                .replace("#servicePath", ApplicationConstant.servicePath);
 
-        IoUtil.writeOutFile(ApplicationContent.servicePath.replaceAll("\\.", File.separator) + File.separator + "impl" + File.separator,
+        IoUtil.writeOutFile(ApplicationConstant.servicePath.replaceAll("\\.", File.separator) + File.separator + "impl" + File.separator,
                 bigTableName + "ServiceImpl.java", content);
     }
 
     public void productMapper(String tableName, String bigTableName, String smallTableName) {
-        String path = "src/main/java/model/XMapper2";
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
 
-        content = content.replace("#modelPath", ApplicationContent.modelPath).replace("#mapperPath", ApplicationContent.mapperPath);
+        content = content.replace("#modelPath", ApplicationConstant.modelPath).replace("#mapperPath", ApplicationConstant.mapperPath);
 
-        IoUtil.writeOutFile(ApplicationContent.mapperPath.replaceAll("\\.", File.separator) + File.separator,
+        IoUtil.writeOutFile(ApplicationConstant.mapperPath.replaceAll("\\.", File.separator) + File.separator,
                 bigTableName + "Mapper.java", content);
     }
 
     public void productMapperXml(String tableName, String bigTableName, String smallTableName, List<ColumnBO> columnList) {
-        String path = "src/main/java/model/XMapper2.xml";
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
 
         ProductSql sql = new ProductSql(columnList);
         String baseList = sql.productBaseList();
         String baseMap = sql.productBaseMap();
-        content = content.replace("#modelPath", ApplicationContent.modelPath).replace("#mapperPath", ApplicationContent.mapperPath)
+        content = content.replace("#modelPath", ApplicationConstant.modelPath).replace("#mapperPath", ApplicationConstant.mapperPath)
                 .replaceAll("#baseList", baseList).replaceAll("#baseMap", baseMap);
 
-        IoUtil.writeOutFile(ApplicationContent.mapperPath.replaceAll("\\.", File.separator) + File.separator,
+        IoUtil.writeOutFile(ApplicationConstant.mapperPath.replaceAll("\\.", File.separator) + File.separator,
                 bigTableName + "Mapper.xml", content);
     }
 
@@ -83,12 +84,12 @@ public class ProductFileTkService {
                     append(columnName).append("; // ").append(columnComment).append("\r\n");
         }
 
-        String path = "src/main/java/model/X2";
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
-        content = content.replace("#modelPath", ApplicationContent.modelPath).replace("#content", sb.toString());
+        content = content.replace("#modelPath", ApplicationConstant.modelPath).replace("#content", sb.toString());
 
-        IoUtil.writeOutFile(ApplicationContent.modelPath.replaceAll("\\.", File.separator) + File.separator,
-                bigTableName + ApplicationContent.modelSuffix + ".java", content);
+        IoUtil.writeOutFile(ApplicationConstant.modelPath.replaceAll("\\.", File.separator) + File.separator,
+                bigTableName + ApplicationConstant.modelSuffix + ".java", content);
     }
 
 }

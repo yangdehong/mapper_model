@@ -12,7 +12,7 @@
     </sql>
 
     <!-- 分页插叙列表 -->
-    <select id="select#1PageList" resultType="#modelPath.#1#3">
+    <select id="select#1PageList" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List"/> FROM #4
         <where>
             #condition

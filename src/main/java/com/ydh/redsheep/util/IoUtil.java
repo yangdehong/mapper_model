@@ -40,7 +40,7 @@ public class IoUtil {
      * @Date: 2018/7/23
      */
     public static void writeOutFile(String path, String fileName, String content) {
-        String filePath = ApplicationContent.filePath;
+        String filePath = ApplicationConstant.filePath;
         if (StringUtils.isNotBlank(filePath)&&!filePath.endsWith(File.separator)) {
             filePath = filePath + File.separator;
         }

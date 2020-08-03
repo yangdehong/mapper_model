@@ -1,7 +1,7 @@
 package com.ydh.redsheep.test;
 
 import com.ydh.redsheep.service.ProductFileDirector;
-import com.ydh.redsheep.util.ApplicationContent;
+import com.ydh.redsheep.util.ApplicationConstant;
 import com.ydh.redsheep.util.JdbcUtil;
 import org.apache.commons.lang3.StringUtils;
 
@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
 
         Main main = new Main();
-        List<String> list = main.getAllTables(ApplicationContent.tableName);
+        List<String> list = main.getAllTables(ApplicationConstant.tableName);
 
         list.forEach(tableName -> {
             ProductFileDirector productFileDirector = new ProductFileDirector(tableName);

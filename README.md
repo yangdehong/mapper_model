@@ -4,8 +4,9 @@
 默认端口是80，可以自行修改。
 model生成是基于lombok插件的，不明白的可以看看这个：https://blog.csdn.net/u014803081/article/details/84574016
 
-## 模型位置
-src/main/java/model 这个包下就是模型
+## 模型
+模型位置：src/main/resources/java/model
+模型常量：com.ydh.redsheep.util.ModelConstant
 ## 模型中需要替换的内容
 #### #0
 包路径：mybatis.packages.path的值，比如com.ydh.redsheep
@@ -33,4 +34,9 @@ model包路径：mybatis.model.path的值，比如com.ydh.redsheep.entity.po
 ## 使用
 jdbc.properties中修改数据库和模型配置
 启动方法：com.ydh.redsheep.test.Main中的main函数，直接执行就可以了
+
+
+
+# 尽情期待web版本
+......遥遥无期......
 

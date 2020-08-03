@@ -1,7 +1,7 @@
 package com.ydh.redsheep.service;
 
 import com.ydh.redsheep.entity.ColumnBO;
-import com.ydh.redsheep.util.ApplicationContent;
+import com.ydh.redsheep.util.ApplicationConstant;
 import com.ydh.redsheep.util.Underline2CamelUtil;
 
 import java.util.List;
@@ -28,7 +28,7 @@ public class ProductFileDirector {
 
     public void start() {
         // 生产文件
-        if (ApplicationContent.isTkMybatis) {
+        if (ApplicationConstant.isTkMybatis) {
             ProductFileTkService productFileService = new ProductFileTkService();
             productFileService.productController(tableName, bigTableName, smallTableName);
             productFileService.productService(tableName, bigTableName, smallTableName);

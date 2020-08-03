@@ -28,7 +28,7 @@ public class #1Controller {
     public ResultModel select#1PageList(#1#3 #2#3,
         @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
         @RequestParam(value = "pageSize", defaultValue = "20", required = false) Integer pageSize){
-        SimplePageInfo simplePageInfo = #2Service.select#1PageList(#2#3, page, pageSize);
+        SimplePageInfo simplePageInfo = #2Service.select#1PageList(#2#3, pageNum, pageSize);
         return ResultModel.success(simplePageInfo);
     }
     /**

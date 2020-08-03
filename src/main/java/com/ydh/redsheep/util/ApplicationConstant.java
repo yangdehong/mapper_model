@@ -5,7 +5,7 @@ package com.ydh.redsheep.util;
 * @author : yangdehong
 * @date : 2019-07-04 14:34
 */
-public class ApplicationContent {
+public class ApplicationConstant {
 
     public static final String filePath = PropertiesUtil.loadProperties("mybatis.file.path");
     public static final String controllerPath = PropertiesUtil.loadProperties("mybatis.controller.path");

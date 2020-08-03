@@ -12,9 +12,9 @@ public class TransferContentUtil {
     public static String transferContent(String filePath, String tableName, String bigTableName, String smallTableName) {
 
         String content = IoUtil.readModelFile(filePath);
-        content = content.replaceAll("#0", ApplicationContent.packages).replaceAll("#1", bigTableName)
-                .replaceAll("#2", smallTableName).replaceAll("#3", ApplicationContent.modelSuffix).replaceAll("#4", tableName)
-                .replaceAll("#author", ApplicationContent.author).replaceAll("#date", LocalDateTime.now().toString());
+        content = content.replaceAll("#0", ApplicationConstant.packages).replaceAll("#1", bigTableName)
+                .replaceAll("#2", smallTableName).replaceAll("#3", ApplicationConstant.modelSuffix).replaceAll("#4", tableName)
+                .replaceAll("#author", ApplicationConstant.author).replaceAll("#date", LocalDateTime.now().toString());
 
         return content;
     }

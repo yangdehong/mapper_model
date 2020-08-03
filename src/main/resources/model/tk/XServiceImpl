@@ -1,0 +1,38 @@
+package #servicePath.impl;
+
+import #modelPath.#1#3;
+import #mapperPath.#1Mapper;
+import #servicePath.#1Service;
+
+import java.lang.Long;
+import com.github.pagehelper.PageHelper;
+import org.springframework.stereotype.Service;
+import javax.annotation.Resource;
+
+/**
+ *
+ * @author : #author
+ * @date : #date
+ */
+@Service
+public class #1ServiceImpl extends BasicServiceImpl<#1#3> implements #1Service {
+
+    @Resource
+    private #1Mapper #2Mapper;
+
+    /**
+     * @Description: 分页查询
+     * @Param:
+     * @return:
+     * @Author: #author
+     * @Date: #date
+    */
+    @Override
+    public SimplePageInfo select#1PageList(#1#3 #2#3, int pageNum, int pageSize){
+        PageHelper.startPage(pageNum, pageSize);
+        List<#1#3> #2List = #2Mapper.select#1PageList(#2#3);
+        return SimplePageInfo.of(#2List);
+    }
+
+
+}
