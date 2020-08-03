@@ -16,7 +16,7 @@ import java.util.List;
 public class ProductFileTkService {
 
     public void productController(String tableName, String bigTableName, String smallTableName) {
-        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.TK_CONTROLLER_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
 
         content = content.replace("#modelPath", ApplicationConstant.modelPath).replace("#mapperPath", ApplicationConstant.mapperPath)
@@ -27,7 +27,7 @@ public class ProductFileTkService {
     }
 
     public void productService(String tableName, String bigTableName, String smallTableName) {
-        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.TK_SERVICE_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
 
         content = content.replace("#modelPath", ApplicationConstant.modelPath).replace("#mapperPath", ApplicationConstant.mapperPath)
@@ -38,7 +38,7 @@ public class ProductFileTkService {
     }
 
     public void productServiceImpl(String tableName, String bigTableName, String smallTableName) {
-        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.TK_SERVICE_IMPL_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
 
         content = content.replace("#modelPath", ApplicationConstant.modelPath).replace("#mapperPath", ApplicationConstant.mapperPath)
@@ -49,7 +49,7 @@ public class ProductFileTkService {
     }
 
     public void productMapper(String tableName, String bigTableName, String smallTableName) {
-        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.TK_MAPPER_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
 
         content = content.replace("#modelPath", ApplicationConstant.modelPath).replace("#mapperPath", ApplicationConstant.mapperPath);
@@ -59,7 +59,7 @@ public class ProductFileTkService {
     }
 
     public void productMapperXml(String tableName, String bigTableName, String smallTableName, List<ColumnBO> columnList) {
-        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.TK_MAPPER_XML_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
 
         ProductSql sql = new ProductSql(columnList);
@@ -84,7 +84,7 @@ public class ProductFileTkService {
                     append(columnName).append("; // ").append(columnComment).append("\r\n");
         }
 
-        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.CONTROLLER_NAME).getPath();
+        String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.TK_MODEL_NAME).getPath();
         String content = TransferContentUtil.transferContent(path, tableName, bigTableName, smallTableName);
         content = content.replace("#modelPath", ApplicationConstant.modelPath).replace("#content", sb.toString());
 

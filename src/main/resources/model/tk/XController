@@ -1,0 +1,83 @@
+package #controllerPath;
+
+import #servicePath.#1Service;
+import #modelPath.#1#3;
+import javax.annotation.Resource;
+import org.springframework.web.bind.annotation.*;
+
+/**
+*
+* @author : #author
+* @date : #date
+*/
+@RestController
+@RequestMapping("#2")
+public class #1Controller {
+
+    @Resource
+    private #1Service #2Service;
+
+    /**
+     * @Description: 分页查询列表
+     * @Param:
+     * @return:
+     * @Author: #author
+     * @Date: #date
+    */
+    @GetMapping("select#1PageList")
+    public ResultModel select#1PageList(#1#3 #2#3,
+        @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
+        @RequestParam(value = "pageSize", defaultValue = "20", required = false) Integer pageSize){
+        SimplePageInfo simplePageInfo = #2Service.select#1PageList(#2#3, pageNum, pageSize);
+        return ResultModel.success(simplePageInfo);
+    }
+    /**
+     * @Description: 根据ID查询
+     * @Param:
+     * @return:
+     * @Author: #author
+     * @Date: #date
+    */
+    @GetMapping("select#1ById")
+    public ResultModel select#1ById(@RequestParam Long id){
+        #1#3 #2#3 = #2Service.selectByKey(id);
+        return ResultModel.success(#2#3);
+    }
+    /**
+     * @Description: 根据ID删除
+     * @Param:
+     * @return:
+     * @Author: #author
+     * @Date: #date
+    */
+    @DeleteMapping("delete#1ById")
+    public ResultModel delete#1ById(@RequestParam Long id){
+        #2Service.delete(id);
+        return ResultModel.success();
+    }
+    /**
+     * @Description: 新增
+     * @Param:
+     * @return:
+     * @Author: #author
+     * @Date: #date
+    */
+    @PostMapping("insert#1")
+    public ResultModel insert#1(@RequestBody #1#3 #2#3){
+        #2Service.saveNotNull(#2#3);
+        return ResultModel.success();
+    }
+    /**
+     * @Description: 根据ID修改
+     * @Param:
+     * @return:
+     * @Author: #author
+     * @Date: #date
+    */
+    @PostMapping("update#1ById")
+    public ResultModel update#1ById(@RequestBody #1#3 #2#3){
+        #2Service.updateNotNull(#2#3);
+        return ResultModel.success();
+    }
+
+}
