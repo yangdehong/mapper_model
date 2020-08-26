@@ -1,6 +1,8 @@
 package com.ydh.redsheep.service;
 
 import com.ydh.redsheep.entity.ColumnBO;
+import com.ydh.redsheep.util.PropertiesUtil;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -34,23 +36,31 @@ public class ProductSql {
      */
     public String productBaseMap() {
         StringBuffer sb = new StringBuffer();
-        int index = 0;
         for (ColumnBO columnBO : columnList) {
             String columnName = columnBO.getColumnName();
             String dataType = columnBO.getDataType();
             dataType = "int".endsWith(dataType)?"integer":dataType;
-            if (index==0) {
+            if ("PRI".equals(columnBO.getColumnKey())) {
                 sb.append("<id column=\"").append(columnName)
                         .append("\" jdbcType=\"").append(dataType.toUpperCase())
                         .append("\" property=\"").append(columnBO.getColumnNameTrans())
                         .append("\"/>").append("\r\n");
             } else {
+                String typeHandler = "";
+                String enumValue = PropertiesUtil.loadEnumProperties(columnBO.getColumnName());
+                if (StringUtils.isNotBlank(enumValue) && enumValue.startsWith("List<")) {
+                    typeHandler = " typeHandler=\"com.yiwise.core.model.enums.handler.base.ListToJsonTypeHandler\"";
+                } else if (StringUtils.isNotBlank(enumValue) && enumValue.startsWith("Set<")) {
+                    typeHandler = " typeHandler=\"com.yiwise.core.model.enums.handler.base.SetToJsonTypeHandler\"";
+                } else if (StringUtils.isNotBlank(enumValue)) {
+                    typeHandler = " typeHandler=\"com.yiwise.core.model.enums.handler."+enumValue+"Handler\"";
+                }
                 sb.append("<result column=\"").append(columnName)
                         .append("\" jdbcType=\"").append(dataType.toUpperCase())
-                        .append("\" property=\"").append(columnBO.getColumnNameTrans())
-                        .append("\"/>").append("\r\n");
+                        .append("\" property=\"").append(columnBO.getColumnNameTrans()).append("\"")
+                        .append(typeHandler)
+                        .append("/>").append("\r\n");
             }
-            index++;
         }
         return sb.toString();
     }

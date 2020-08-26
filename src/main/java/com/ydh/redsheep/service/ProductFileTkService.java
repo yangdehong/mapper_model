@@ -1,10 +1,8 @@
 package com.ydh.redsheep.service;
 
 import com.ydh.redsheep.entity.ColumnBO;
-import com.ydh.redsheep.util.ApplicationConstant;
-import com.ydh.redsheep.util.IoUtil;
-import com.ydh.redsheep.util.ModelConstant;
-import com.ydh.redsheep.util.TransferContentUtil;
+import com.ydh.redsheep.util.*;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.util.List;
@@ -80,8 +78,22 @@ public class ProductFileTkService {
             String columnName = columnBO.getColumnNameTrans();
             String dataType = columnBO.getDataTypeTrans();
             String columnComment = columnBO.getColumnComment();
-            sb.append("    private ").append(dataType).append(" ").
-                    append(columnName).append("; // ").append(columnComment).append("\r\n");
+            String enumValue = PropertiesUtil.loadEnumProperties(columnBO.getColumnName());
+            if (StringUtils.isNotBlank(enumValue) && enumValue.startsWith("List<")) {
+                sb.append("    @ColumnType(typeHandler = ListToJsonTypeHandler.class) ").append("\r\n");
+                dataType = enumValue;
+            } else if (StringUtils.isNotBlank(enumValue) && enumValue.startsWith("Set<")) {
+                sb.append("    @ColumnType(typeHandler = SetToJsonTypeHandlerHandler.class) ").append("\r\n");
+                dataType = enumValue;
+            } else if (StringUtils.isNotBlank(enumValue)) {
+                sb.append("    @ColumnType(typeHandler = " + enumValue + "Handler.class) ").append("\r\n");
+                dataType = enumValue;
+            }
+            if (!"createTime".equals(columnName) && !"updateTime".equals(columnName)
+                    && !"createUserId".equals(columnName) && !"updateUserId".equals(columnName)) {
+                sb.append("    private ").append(dataType).append(" ").
+                        append(columnName).append("; // ").append(columnComment).append("\r\n");
+            }
         }
 
         String path = this.getClass().getClassLoader().getResource(ModelConstant.ROOT_PATH +ModelConstant.TK_MODEL_NAME).getPath();

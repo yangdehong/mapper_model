@@ -17,10 +17,10 @@ public class JdbcUtil {
 	public JdbcUtil(String sql, List<String> params) {
 		try {
 			// 指定连接类型
-			Class.forName(PropertiesUtil.loadProperties("db.drive"));
-			String url = PropertiesUtil.loadProperties("db.url");
-			String username = PropertiesUtil.loadProperties("db.username");
-			String password = PropertiesUtil.loadProperties("db.password");
+			Class.forName(PropertiesUtil.loadJdbcProperties("db.drive"));
+			String url = PropertiesUtil.loadJdbcProperties("db.url");
+			String username = PropertiesUtil.loadJdbcProperties("db.username");
+			String password = PropertiesUtil.loadJdbcProperties("db.password");
 			// 获取连接
 			conn = DriverManager.getConnection(url, username, password);
 			// 准备执行语句

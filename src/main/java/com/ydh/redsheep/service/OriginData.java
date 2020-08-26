@@ -17,7 +17,7 @@ import java.util.List;
 */
 public class OriginData {
 
-    public static final String allColumnSql = "SELECT COLUMN_NAME, DATA_TYPE, COLUMN_COMMENT FROM INFORMATION_SCHEMA. COLUMNS WHERE table_name = ? AND table_schema = (select database())";
+    public static final String allColumnSql = "SELECT COLUMN_NAME, DATA_TYPE, COLUMN_COMMENT, COLUMN_KEY FROM INFORMATION_SCHEMA. COLUMNS WHERE table_name = ? AND table_schema = (select database())";
 
     public static List<ColumnBO> productColumnList(String tableName) {
         List<ColumnBO> columnList = new ArrayList<>();
@@ -33,8 +33,9 @@ public class OriginData {
                 String columnName = ret.getString(1);
                 String dataType = ret.getString(2);
                 String columnComment = ret.getString(3);
+                String columnKey = ret.getString(4);
                 columnList.add(new ColumnBO(columnName, Underline2CamelUtil.underline2Camel(columnName), dataType,
-                        DataTypeTransformUtil.dataTypeTransform("mysql", dataType), columnComment));
+                        DataTypeTransformUtil.dataTypeTransform("mysql", dataType), columnComment, columnKey));
             }
         } catch (SQLException e) {
             e.printStackTrace();
