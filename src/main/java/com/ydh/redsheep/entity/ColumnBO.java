@@ -33,5 +33,9 @@ public class ColumnBO {
      * 注释
      */
     private String columnComment;
+    /**
+     * 索引
+     */
+    private String columnKey;
 
 }

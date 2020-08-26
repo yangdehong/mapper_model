@@ -34,12 +34,11 @@ public class ProductSql {
      */
     public String productBaseMap() {
         StringBuffer sb = new StringBuffer();
-        int index = 0;
         for (ColumnBO columnBO : columnList) {
             String columnName = columnBO.getColumnName();
             String dataType = columnBO.getDataType();
             dataType = "int".endsWith(dataType)?"integer":dataType;
-            if (index==0) {
+            if ("PRI".equals(columnBO.getColumnKey())) {
                 sb.append("<id column=\"").append(columnName)
                         .append("\" jdbcType=\"").append(dataType.toUpperCase())
                         .append("\" property=\"").append(columnBO.getColumnNameTrans())
@@ -50,7 +49,6 @@ public class ProductSql {
                         .append("\" property=\"").append(columnBO.getColumnNameTrans())
                         .append("\"/>").append("\r\n");
             }
-            index++;
         }
         return sb.toString();
     }
