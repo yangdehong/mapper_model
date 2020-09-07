@@ -25,10 +25,8 @@ public class #1Controller {
      * @Date: #date
     */
     @GetMapping("select#1PageList")
-    public ResultModel select#1PageList(#1#3 #2#3,
-        @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
-        @RequestParam(value = "pageSize", defaultValue = "20", required = false) Integer pageSize){
-        SimplePageInfo simplePageInfo = #2Service.select#1PageList(#2#3, pageNum, pageSize);
+    public ResultModel select#1PageList(@RequestBody #1#5 #2#5){
+        SimplePageInfo simplePageInfo = #2Service.select#1PageList(#2#5, #2#5.getPageNum(), #2#5.getPageSize());
         return ResultModel.success(simplePageInfo);
     }
     /**

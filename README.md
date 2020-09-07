@@ -16,6 +16,8 @@ model生成是基于lombok插件的，不明白的可以看看这个：https://b
 开头小写的类名：比如表名是my_dog，就是myDog
 #### #3
 实体类型的后缀：model.suffix的值，比如PO
+#### #5
+实体类型的后缀：model.page.search.suffix的值，比如VO
 #### #4
 表名：就是数据库的表名字
 #### #controllerPath
@@ -32,7 +34,10 @@ model包路径：mybatis.model.path的值，比如com.ydh.redsheep.entity.po
 时间，不需要修改
 
 ## 使用
-jdbc.properties中修改数据库和模型配置
+jdbc.properties中修改数据库连接
+parmas.properties中修改要生成的表的名字，生成文件包名等
+enums.properties中做枚举类型映射
+
 启动方法：com.ydh.redsheep.test.Main中的main函数，直接执行就可以了
 
 

@@ -1,0 +1,17 @@
+package #modelPath;
+
+import lombok.Data;
+import com.yiwise.core.dal.entity.base.AbstractQueryVO;
+import java.io.Serializable;
+
+/**
+ *
+ * @author : #author
+ * @date : #date
+ */
+@Data
+public class #1#5 extends AbstractQueryVO implements Serializable {
+
+    #content
+
+}

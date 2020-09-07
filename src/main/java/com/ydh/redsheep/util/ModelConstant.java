@@ -17,11 +17,12 @@ public class ModelConstant {
     public static final String MAPPER_XML_NAME = "XMapper.xml";
     public static final String MODEL_NAME = "X";
     // tkmybatis+pagehelper的类
-    public static final String TK_CONTROLLER_NAME = "XController";
+    public static final String TK_CONTROLLER_NAME = "tk/XController";
     public static final String TK_SERVICE_NAME = "tk/XService";
     public static final String TK_SERVICE_IMPL_NAME = "tk/XServiceImpl";
     public static final String TK_MAPPER_NAME = "tk/XMapper";
     public static final String TK_MAPPER_XML_NAME = "tk/XMapper.xml";
     public static final String TK_MODEL_NAME = "tk/X";
+    public static final String TK_MODEL2_NAME = "tk/X2";
 
 }

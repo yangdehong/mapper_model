@@ -15,8 +15,23 @@
     <select id="select#1PageList" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List"/> FROM #4
         <where>
-            #condition
+            <include refid="condition"/>
         </where>
     </select>
+
+    <!-- 条件 -->
+    <sql id="condition" >
+        #condition
+    </sql>
+
+    <!-- 新增 -->
+    <sql id="insert" >
+        #baseValueList
+    </sql>
+
+    <!-- 根据ID修改 -->
+    <sql id="update" >
+        #updateValue
+    </sql>
 
 </mapper>

@@ -36,6 +36,7 @@ public class ProductFileDirector {
             productFileService.productMapper(tableName, bigTableName, smallTableName);
             productFileService.productMapperXml(tableName, bigTableName, smallTableName, columnList);
             productFileService.productModel(tableName, bigTableName, smallTableName, columnList);
+            productFileService.productModel2(tableName, bigTableName, smallTableName, columnList);
         } else {
             ProductFileService productFileService = new ProductFileService();
             productFileService.productController(tableName, bigTableName, smallTableName);
